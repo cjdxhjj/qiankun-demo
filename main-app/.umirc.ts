@@ -10,9 +10,9 @@ export default defineConfig({
       apps: [
         {
           name: 'vue',
-          entry: '/vue.html',
+          entry: '/vue.html'
         }
-      ],
-    },
+      ]
+    }
   }
 });

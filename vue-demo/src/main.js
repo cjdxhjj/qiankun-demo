@@ -18,7 +18,8 @@ Vue.config.productionTip = false;
 let router = null;
 let instance = null;
 function render(props) {
-  // const { container } = props;
+  const { container } = props;
+  console.log('mount app:' + container.id);
   router = new VueRouter({
     base: '/',
     mode: 'history',
@@ -27,7 +28,7 @@ function render(props) {
   instance = new Vue({
     router,
     render: h => h(App),
-  }).$mount('#app');
+  }).$mount(container ? container.querySelector('#app') : '#app');
 }
 
 
@@ -47,4 +48,5 @@ export async function unmount() {
   instance.$el.innerHTML = '';
   instance = null;
   router = null;
+  console.log('unmount app');
 }
